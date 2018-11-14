@@ -79,7 +79,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal|bottom"
                                 android:gravity="right"
-                                android:text="Version: 1.002"
+                                android:text="Version: 2.001"
                                 android:textSize="12dp" />
                         </FrameLayout>
                     </LinearLayout>
