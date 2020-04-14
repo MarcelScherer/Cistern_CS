@@ -31,6 +31,8 @@ public class Cistern_history extends AppCompatActivity {
 
         });
         //webView.loadUrl("file:///android_asset/index.html"); //this is why you needed the assets folder
-        webView.loadUrl("http://cs-host-hoes.spdns.de:3000/d-solo/uX9fzlZgz/today?orgId=1&panelId=2&theme=light");
+        //webView.loadUrl("http://cs-host-hoes.spdns.de:3000/d-solo/uX9fzlZgz/today?orgId=1&panelId=2&theme=light");
+        webView.loadUrl("http://cs-host-hoes.spdns.de:3000/d-solo/Kad-zTzgz/waterlevel-and-temperature-today?panelId=2&orgId=1&");
+        //webView.loadUrl("http://cs-host-hoes.spdns.de:3000/d/Kad-zTzgz/waterlevel-and-temperature-today?orgId=1");
     }
 }
