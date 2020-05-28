@@ -9,8 +9,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,8 +31,8 @@ public class Cistern_Actual extends AppCompatActivity {
     static int SERVER_PORT  = 5050;
 
     ImageView cistern_image;
-    ImageView line_image;
-    TextView cistern_lever_text;
+    TextView cistern_water_text;
+    TextView cistern_temp_text;
     int server_response;
     float water_lever;
     int water_lever_int;
@@ -36,24 +42,32 @@ public class Cistern_Actual extends AppCompatActivity {
     ViewGroup skala_feld;
     int y_view_size;
     Intent histroy_intent;
+    ProgressBar progressBarWater;
+    ProgressBar progressBarAir;
+    WebView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cistern__actual);
 
-        cistern_lever_text = (TextView)findViewById(R.id.text_water_lever);
+        webView = (WebView) findViewById(R.id.web_view);
+        cistern_water_text = (TextView)findViewById(R.id.water);
+        cistern_temp_text = (TextView)findViewById(R.id.temperatur);
         button_now         = (Button)findViewById(R.id.button_now);
         button_historie    = (Button)findViewById(R.id.button_history);
         cistern_image      = (ImageView)findViewById(R.id.imageView);
+        progressBarWater   = (ProgressBar) findViewById(R.id.progressBarWater);
+        progressBarAir   = (ProgressBar) findViewById(R.id.progressBarTemp);
+
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
+        webSettings.setAppCacheEnabled(true);
+        webSettings.setAppCacheMaxSize(100 * 1000 * 1000);
 
         histroy_intent = new Intent(this, Cistern_history.class);
-
-        skala_feld = (ViewGroup)findViewById(R.id.skala_feld);
-        line_image = new ImageView(this);
-        line_image.setImageResource(R.drawable.line);
-
-        skala_feld.addView(line_image);
 
         /* action button "now" */
         button_now.setOnClickListener(new View.OnClickListener(){
@@ -90,20 +104,16 @@ public class Cistern_Actual extends AppCompatActivity {
             e.printStackTrace();
             Log.d("Meine App", "Fehler beim empfgang...");
         }
-    }
 
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus){
-        super.onWindowFocusChanged(hasFocus);
-        try {
-            y_view_size = skala_feld.getHeight();
-            Log.d("Meine App", "Temp: " + Integer.toString(y_view_size));
-            line_image.setTranslationY(((float) y_view_size - 20) - (((float) y_view_size - 20) / 1.26f * water_lever));
-        }catch (Exception e){
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            Log.d("Meine App", "Fehler beim empfgang...");
-        }
+        webView.setWebViewClient(new WebViewClient() {
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                return false;
+            }
+
+        });
+        webView.loadUrl("http://cs-host-hoes.spdns.de:3000/d-solo/Kad-zTzgz/waterlevel-and-temperature-today?panelId=2&orgId=1&");
     }
 
     /* a new task for upload the photo */
@@ -155,9 +165,15 @@ public class Cistern_Actual extends AppCompatActivity {
                 Log.d("Meine App","Starte Anzeige");
                 if (server_response == 2) {
                     if ( (water_lever_int % 10) == 0){
-                        cistern_lever_text.setText("Füllstand: " + Float.toString(water_lever) + "0 m " + "(" + Float.toString(water_temp) + "°C)");
+                        cistern_temp_text.setText("Temperatur: "  + Float.toString(water_temp) + "°C");
+                        cistern_water_text.setText("Füllstand: " + Float.toString(water_lever) + "0 m ");
+                        progressBarWater.setProgress((int)(water_lever*1000));
+                        progressBarAir.setProgress((int)(water_temp*10));
                     }else {
-                        cistern_lever_text.setText("Füllstand: " + Float.toString(water_lever) + " m " + "(" + Float.toString(water_temp) + "°C)");
+                        cistern_temp_text.setText("Temperatur: "  + Float.toString(water_temp) + "°C");
+                        cistern_water_text.setText("Füllstand: " + Float.toString(water_lever) + " m ");
+                        progressBarWater.setProgress((int)(water_lever*1000));
+                        progressBarAir.setProgress((int)(water_temp*10));
                     }
                     if(water_lever > 1.3) {
                         cistern_image.setImageResource(R.drawable.regentonne_voll);

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/intergrund"
     tools:context=".Cistern_Actual">
 
     <LinearLayout
@@ -16,75 +17,94 @@
         <FrameLayout
             android:layout_width="fill_parent"
             android:layout_height="0dip"
-            android:layout_weight="7">
+            android:layout_weight="7.5">
 
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="3.001 " />
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="14">
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="left|center_vertical">
-
-                <RelativeLayout
-                    android:layout_width="0dip"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/skala"
-                    android:id="@+id/skala_feld">
-
-                </RelativeLayout>
-
+                android:orientation="horizontal">
                 <FrameLayout
                     android:layout_width="0dip"
                     android:layout_height="fill_parent"
-                    android:layout_weight="5">
+                    android:layout_weight="17">
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="15">
 
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <FrameLayout
-                            android:layout_width="fill_parent"
-                            android:layout_height="0dip"
-                            android:layout_weight="1">>
-                            <TextView
-                                android:layout_width="fill_parent"
-                                android:layout_height="fill_parent"
-                                android:textAppearance="?android:attr/textAppearanceLarge"
-                                android:text="Füllstand: -m"
-                                android:textSize="32sp"
-                                android:id="@+id/text_water_lever"
-                                android:layout_gravity="left|top" />
-
-                            <FrameLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center_horizontal"></FrameLayout>
-                        </FrameLayout>
-
-                        <FrameLayout
-                            android:layout_width="fill_parent"
-                            android:layout_height="0dip"
-                            android:layout_weight="4">
-
-                            <ImageView
-                                android:layout_width="fill_parent"
-                                android:layout_height="fill_parent"
-                                android:id="@+id/imageView"
-                                android:src="@drawable/regentonne_0" />
-
-                            <TextView
-                                android:id="@+id/textView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal|bottom"
-                                android:gravity="right"
-                                android:text="Version: 2.006"
-                                android:textSize="12dp" />
-                        </FrameLayout>
-                    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        app:srcCompat="@drawable/regentonne_0" />
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="16">
                 </FrameLayout>
             </LinearLayout>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="9">
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="24.5">
+
+            <WebView
+                android:id="@+id/web_view"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            </WebView>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="3">
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1">
+
+            <ProgressBar
+                android:id="@+id/progressBarTemp"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:foregroundTint="@color/colorAir"
+                android:indeterminateTint="@color/colorAir"
+                android:max="400"
+                android:progressTint="@color/colorAir" />
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="5">
+
+            <TextView
+                android:id="@+id/temperatur"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:text="-" />
         </FrameLayout>
 
         <FrameLayout
@@ -92,35 +112,74 @@
             android:layout_height="0dip"
             android:layout_weight="1">
 
+            <ProgressBar
+                android:id="@+id/progressBarWater"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:foregroundTint="@color/colorWater"
+                android:indeterminateTint="@color/colorWater"
+                android:max="1400"
+                android:progressTint="@color/colorWater" />
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="5">
+            <TextView
+                android:id="@+id/water"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:text="-" />
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="2">
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="6">
+
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
                 <FrameLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="5">
+                    android:layout_width="0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="14">
 
                     <Button
                         android:id="@+id/button_now"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:text="Aktualisieren" />
+                        android:background="@android:color/transparent"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20dp"
+                        android:text="     Aktuel" />
                 </FrameLayout>
 
                 <FrameLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="5">
+                    android:layout_width="0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="16">
+
                     <Button
                         android:id="@+id/button_history"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:text="Historie" />
+                        android:background="@android:color/transparent"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20dp"
+                        android:text="  history" />
                 </FrameLayout>
-
             </LinearLayout>
+
         </FrameLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

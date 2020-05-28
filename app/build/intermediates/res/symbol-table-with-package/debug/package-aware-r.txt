@@ -382,8 +382,10 @@ color bright_foreground_material_light
 color button_material_dark
 color button_material_light
 color colorAccent
+color colorAir
 color colorPrimary
 color colorPrimaryDark
+color colorWater
 color dim_foreground_disabled_material_dark
 color dim_foreground_disabled_material_light
 color dim_foreground_material_dark
@@ -630,7 +632,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable ic_launcher_background
 drawable ic_launcher_foreground
-drawable line
+drawable intergrund
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -653,7 +655,6 @@ drawable regentonne_65
 drawable regentonne_80
 drawable regentonne_95
 drawable regentonne_voll
-drawable skala
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
@@ -750,6 +751,8 @@ id packed
 id parent
 id parentPanel
 id percent
+id progressBarTemp
+id progressBarWater
 id progress_circular
 id progress_horizontal
 id radio
@@ -775,7 +778,6 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
-id skala_feld
 id spacer
 id split_action_bar
 id spread
@@ -791,12 +793,12 @@ id tabMode
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
+id temperatur
 id text
 id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
-id textView
-id text_water_lever
+id textView2
 id time
 id title
 id titleDividerNoCustom
@@ -806,6 +808,7 @@ id topPanel
 id uniform
 id up
 id useLogo
+id water
 id web_view
 id withText
 id wrap

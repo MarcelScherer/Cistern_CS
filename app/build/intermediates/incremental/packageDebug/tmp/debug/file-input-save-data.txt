@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Apr 14 19:18:59 CEST 2020
+#Thu May 28 21:55:24 CEST 2020
 1.base=C\:\\Users\\scher\\Documents\\GitHub\\Cistern_CS\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
 2.path=index.html
 0.baseType=DIRECTORY
