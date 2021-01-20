@@ -751,6 +751,7 @@ id parent
 id parentPanel
 id percent
 id progressBarTemp
+id progressBarTempNeg
 id progressBarWater
 id progress_circular
 id progress_horizontal

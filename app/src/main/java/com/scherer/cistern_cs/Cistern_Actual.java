@@ -43,6 +43,7 @@ public class Cistern_Actual extends AppCompatActivity {
     Intent histroy_intent;
     ProgressBar progressBarWater;
     ProgressBar progressBarAir;
+    ProgressBar progressBarAirNeg;
     WebView webView;
 
     @Override
@@ -57,7 +58,8 @@ public class Cistern_Actual extends AppCompatActivity {
         button_historie    = (Button)findViewById(R.id.button_history);
         cistern_image      = (ImageView)findViewById(R.id.imageView);
         progressBarWater   = (ProgressBar) findViewById(R.id.progressBarWater);
-        progressBarAir   = (ProgressBar) findViewById(R.id.progressBarTemp);
+        progressBarAir     = (ProgressBar) findViewById(R.id.progressBarTemp);
+        progressBarAirNeg  = (ProgressBar) findViewById(R.id.progressBarTempNeg);
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setDomStorageEnabled(true);
@@ -167,12 +169,27 @@ public class Cistern_Actual extends AppCompatActivity {
                         cistern_temp_text.setText("Temperatur: "  + Float.toString(water_temp) + "°C");
                         cistern_water_text.setText("Füllstand: " + Float.toString(water_lever) + "0 m ");
                         progressBarWater.setProgress((int)(water_lever*1000));
-                        progressBarAir.setProgress((int)(water_temp*10));
+
+                        if((int)(water_temp) >= 0) {
+                            progressBarAir.setProgress((int) (water_temp * 10));
+                            progressBarAirNeg.setProgress((int) (0));
+                        }else{
+                            progressBarAir.setProgress(0);
+                            progressBarAirNeg.setProgress((int) (-water_temp * 10));
+                        }
                     }else {
                         cistern_temp_text.setText("Temperatur: "  + Float.toString(water_temp) + "°C");
                         cistern_water_text.setText("Füllstand: " + Float.toString(water_lever) + " m ");
                         progressBarWater.setProgress((int)(water_lever*1000));
-                        progressBarAir.setProgress((int)(water_temp*10));
+
+                        progressBarAir.setProgress((int) (10));
+                        if((int)(water_temp) >= 0) {
+                            progressBarAir.setProgress((int) (water_temp * 10));
+                            progressBarAirNeg.setProgress((int) (0));
+                        }else{
+                            progressBarAir.setProgress(0);
+                            progressBarAirNeg.setProgress((int) (-water_temp * 10));
+                        }
                     }
                     if(water_lever > 1.3) {
                         cistern_image.setImageResource(R.drawable.regentonne_voll);

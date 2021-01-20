@@ -83,16 +83,46 @@
             android:layout_height="0dip"
             android:layout_weight="1">
 
-            <ProgressBar
-                android:id="@+id/progressBarTemp"
-                style="@android:style/Widget.ProgressBar.Horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:foregroundTint="@color/colorAir"
-                android:indeterminateTint="@color/colorAir"
-                android:min="-50"
-                android:max="400"
-                android:progressTint="@color/colorAir" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="10">
+                    <ProgressBar
+                        android:id="@+id/progressBarTempNeg"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:foregroundTint="@color/colorAir"
+                        android:indeterminateTint="@color/colorAir"
+                        android:min="0"
+                        android:max="100"
+                        android:scaleX="-1"
+                        android:progressTint="@color/colorAir" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="40">
+
+                    <ProgressBar
+                        android:id="@+id/progressBarTemp"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:foregroundTint="@color/colorAir"
+                        android:indeterminateTint="@color/colorAir"
+                        android:max="400"
+                        android:min="0"
+                        android:progressTint="@color/colorAir" />
+                </FrameLayout>
+            </LinearLayout>
+
         </FrameLayout>
         <FrameLayout
             android:layout_width="fill_parent"
