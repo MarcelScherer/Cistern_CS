@@ -1,15 +1,11 @@
 #Internal package file, do not edit.
-#Thu May 28 21:55:24 CEST 2020
+#Fri Jan 15 21:12:51 CET 2021
 1.base=C\:\\Users\\scher\\Documents\\GitHub\\Cistern_CS\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
-2.path=index.html
 0.baseType=DIRECTORY
-2.base=C\:\\Users\\scher\\Documents\\GitHub\\Cistern_CS\\app\\build\\intermediates\\merged_assets\\debug\\mergeDebugAssets\\out
-2.set=ASSET
 1.baseType=DIRECTORY
-count=3
+count=2
 1.set=DEX
 0.path=classes.dex
 0.set=DEX
 0.base=C\:\\Users\\scher\\Documents\\GitHub\\Cistern_CS\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-2.baseType=DIRECTORY
 1.path=classes.dex

@@ -1,4 +1,4 @@
-#Thu May 28 21:55:23 CEST 2020
+#Fri Jan 15 21:12:50 CET 2021
 base.0=C\:\\Users\\scher\\Documents\\GitHub\\Cistern_CS\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
 path.1=classes.dex
 renamed.1=classes2.dex
