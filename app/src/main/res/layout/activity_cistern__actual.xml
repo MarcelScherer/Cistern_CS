@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:text="3.001 " />
+                android:text="3.100 " />
         </FrameLayout>
         <FrameLayout
             android:layout_width="fill_parent"
