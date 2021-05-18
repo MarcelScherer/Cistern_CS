@@ -36,7 +36,7 @@ public class Cistern_Actual extends AppCompatActivity {
     float water_lever;
     int water_lever_int;
     float water_temp;
-    float water_liter;
+    int water_liter;
     Button button_now;
     Button button_historie;
     ViewGroup skala_feld;
@@ -144,8 +144,8 @@ public class Cistern_Actual extends AppCompatActivity {
                 water_lever = (float)((int)(water_lever * 100 + 0.5))/100;
                 water_temp  = (((float)(socket_input.readShort())) / 10) - 50;
                 water_temp = (float)((int)(water_temp * 10 + 0.5))/10;
-                water_liter = (float)(socket_input.readShort());
-                water_liter = (float)((int)(water_liter * 10 + 0.5))/10;
+                water_liter = (socket_input.readShort());
+                water_liter = ((int)(water_liter * 10 + 0.5))/10;
                 Log.d("Meine App", "reveived data");
 
                 socket_output.close();
@@ -170,7 +170,7 @@ public class Cistern_Actual extends AppCompatActivity {
                 if (server_response == 2) {
                     if ( (water_lever_int % 10) == 0){
                         cistern_temp_text.setText("Temperatur: "  + Float.toString(water_temp) + "°C");
-                        cistern_water_text.setText("Füllstand: " + Float.toString(water_lever) + "0 m /" + Float.toString(water_liter) + "l");
+                        cistern_water_text.setText("Füllstand: " + Float.toString(water_lever) + "0 m / " + Integer.toString(water_liter) + " l");
                         progressBarWater.setProgress((int)(water_lever*1000));
 
                         if((int)(water_temp) >= 0) {
@@ -182,7 +182,7 @@ public class Cistern_Actual extends AppCompatActivity {
                         }
                     }else {
                         cistern_temp_text.setText("Temperatur: "  + Float.toString(water_temp) + "°C");
-                        cistern_water_text.setText("Füllstand: " + Float.toString(water_lever) + " m /" + Float.toString(water_liter) + "l");
+                        cistern_water_text.setText("Füllstand: " + Float.toString(water_lever) + " m / " + Integer.toString(water_liter) + " l");
                         progressBarWater.setProgress((int)(water_lever*1000));
 
                         progressBarAir.setProgress((int) (10));
